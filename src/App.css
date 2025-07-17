@@ -1,0 +1,255 @@
+/* GLOBAL RESET & BOX-SIZING */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ROOT AND COMMON STYLES */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* =============== EMPLOYEE FORM STYLING =============== */
+
+.employee-form-wrapper {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6wMqDkMzyrVtNIkQ8LvEeK3yVUdcEz1KeSQ&s'); /* Put your image inside public folder */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.employee-form {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+  text-align: left; /* ✅ Fix alignment of content */
+}
+
+.employee-form h2 {
+  text-align: center;
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.employee-form label {
+  display: block;
+  margin: 10px 0 6px;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.employee-form input[type="text"] {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 16px;
+  transition: border-color 0.3s ease;
+  display: block;
+}
+
+.employee-form input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.employee-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.employee-form button:hover {
+  background-color: #0056b3;
+}
+
+.edit {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.employee-form button:hover {
+  background-color: #0056b3;
+}
+
+/* =============== MOBILE RESPONSIVE =============== */
+
+@media (max-width: 480px) {
+  .employee-form-wrapper {
+    padding: 20px 10px;
+    align-items: flex-start;
+  }
+
+  .employee-form {
+    padding: 20px 15px;
+  }
+
+  .employee-form h2 {
+    font-size: 1.2rem;
+  }
+
+  .employee-form label,
+  .employee-form input[type="text"],
+  .employee-form button {
+    font-size: 0.95rem;
+  }
+}
+
+/* === Employee Table Styling === */
+table {
+  width: 100%;
+  max-width: 1000px;
+  margin: 30px auto;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+table th,
+table td {
+  padding: 12px 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+table th {
+  background-color: #007bff;
+  color: white;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table td button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  background-color: #28a745;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+table td button:hover {
+  background-color: #218838;
+}
+
+table td button:last-child {
+  background-color: #dc3545;
+}
+
+table td button:last-child:hover {
+  background-color: #c82333;
+}
+
+/* === Responsive Table Wrapper === */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.85rem;
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+  }
+
+  table thead {
+    display: none;
+  }
+
+  table tr {
+    display: block;
+    margin-bottom: 15px;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+
+  table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  table td:last-child {
+    border-bottom: none;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #555;
+  }
+}
