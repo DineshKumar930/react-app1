@@ -83,15 +83,15 @@ const EmpCURD = () => {
     setEditIndex(editIndex);
   };
 
-  const deleteEmployee = (deleteIndex) => {
-    const deleteObj = empObj.filter((e, i) => i !== deleteIndex);
+  const deleteEmployee = (index) => {
+    const deleteObj = empObj.filter((e, i) => i !== index);
     setEmpObj(deleteObj);
-    if (deleteIndex == editIndex) {
+    if (index == editIndex) {
       setEditIndex(null);
     }
   };
 
-  //clear form logic
+  
   const clearForm = () => {
     setEmpFullName("");
     setEmpGmail("");
@@ -152,7 +152,7 @@ const EmpCURD = () => {
       <br />
       <br />
       <br />
-      <h3>Low Salary (Less than 30000)</h3>
+      <h3>Low Salary </h3>
       {empObj.filter((emp) => Number(emp.empSalary) < 30000).length > 0 ? (
         <table border={1} cellSpacing={0} cellPadding={5}>
           <thead>
@@ -163,16 +163,15 @@ const EmpCURD = () => {
               <th>Mobile</th>
               <th>Salary</th>
               <th>PAN</th>
-              <th>designation</th>
+              <th>Designation</th>
               <th colSpan={2}>Actions</th>
             </tr>
           </thead>
           <tbody>
             {empObj
               .filter((emp) => Number(emp.empSalary) < 30000)
-
               .map((e, i) => (
-                <tr key={i}>
+                <tr>
                   <td>{i + 1}</td>
                   <td>{e.EmpFullName}</td>
                   <td>{e.empGmail}</td>
@@ -181,7 +180,7 @@ const EmpCURD = () => {
                   <td>{e.empPAN}</td>
                   <td>{e.designation}</td>
                   <td>
-                    <button onClick={() => updateEmployee(i)}>Edit</button>
+                    <button onClick={() => updateEmployee(i)} style={{backgroundColor:"green"}}>Edit</button>
                   </td>
                   <td>
                     <button onClick={() => deleteEmployee(i)}>Delete</button>
@@ -198,7 +197,7 @@ const EmpCURD = () => {
       <br />
       <h3>Medium Salary </h3>
       {empObj.filter(
-        (emp) => Number(emp.empSalary) > 30000 && Number(emp.empSalary) < 50000
+        (emp) => Number(emp.empSalary) >= 30000 && Number(emp.empSalary) < 50000
       ).length > 0 ? (
         <table border={1} cellSpacing={0} cellPadding={5}>
           <thead>
@@ -218,10 +217,10 @@ const EmpCURD = () => {
               .filter(
                 (emp) =>
                   Number(emp.empSalary) >= 30000 &&
-                  Number(emp.empSalary) <50000
+                  Number(emp.empSalary) < 50000
               )
               .map((e, i) => (
-                <tr key={i}>
+                <tr>
                   <td>{i + 1}</td>
                   <td>{e.EmpFullName}</td>
                   <td>{e.empGmail}</td>
@@ -230,7 +229,7 @@ const EmpCURD = () => {
                   <td>{e.empPAN}</td>
                   <td>{e.designation}</td>
                   <td>
-                    <button onClick={() => updateEmployee(i)}>Edit</button>
+                    <button onClick={() => updateEmployee(i)} style={{backgroundColor:"green"}}>Edit</button>
                   </td>
                   <td>
                     <button onClick={() => deleteEmployee(i)}>Delete</button>
@@ -244,8 +243,8 @@ const EmpCURD = () => {
       )}
       <br />
       <br />
-      <h3>High Salary (More than ₹50,000)</h3>
-      {empObj.filter((emp) => Number(emp.empSalary) > 50000).length > 0 ? (
+      <h3>High Salary</h3>
+      {empObj.filter((emp) => Number(emp.empSalary) >= 50000).length > 0 ? (
         <table border={1} cellSpacing={0} cellPadding={5}>
           <thead>
             <tr>
@@ -261,9 +260,9 @@ const EmpCURD = () => {
           </thead>
           <tbody>
             {empObj
-              .filter((emp) => Number(emp.empSalary) > 50000)
+              .filter((emp) => Number(emp.empSalary) >= 50000)
               .map((e, i) => (
-                <tr key={i}>
+                <tr>
                   <td>{i + 1}</td>
                   <td>{e.EmpFullName}</td>
                   <td>{e.empGmail}</td>
@@ -272,7 +271,7 @@ const EmpCURD = () => {
                   <td>{e.empPAN}</td>
                   <td>{e.designation}</td>
                   <td>
-                    <button onClick={() => updateEmployee(i)}>Edit</button>
+                    <button onClick={() => updateEmployee(i)} style={{backgroundColor:"green"}}>Edit</button>
                   </td>
                   <td>
                     <button onClick={() => deleteEmployee(i)}>Delete</button>
